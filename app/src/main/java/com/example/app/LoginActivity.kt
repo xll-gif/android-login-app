@@ -3,6 +3,7 @@ package com.example.app
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,12 +38,14 @@ class LoginActivity : AppCompatActivity() {
         // 模拟登录
         progressBar.visibility = ProgressBar.VISIBLE
         loginButton.isEnabled = false
+        loginButton.alpha = 0.5f
 
         Thread {
             Thread.sleep(1500)
             runOnUiThread {
                 progressBar.visibility = ProgressBar.GONE
                 loginButton.isEnabled = true
+                loginButton.alpha = 1.0f
 
                 if (username == "admin" && password == "123456") {
                     Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
