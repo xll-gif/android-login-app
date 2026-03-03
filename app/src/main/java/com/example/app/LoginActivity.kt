@@ -48,8 +48,6 @@ class LoginActivity : AppCompatActivity() {
 
                 if (username == "admin" && password == "123456") {
                     Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
-                    // 跳转到首页
-                    // startActivity(Intent(this, HomeActivity::class.java))
                 } else {
                     Toast.makeText(this, "用户名或密码错误", Toast.LENGTH_SHORT).show()
                 }
