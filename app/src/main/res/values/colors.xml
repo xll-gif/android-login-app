@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- MasterGo 登录页设计 token -->
+    <color name="login_bg_start">#EFF6FF</color>
+    <color name="login_bg_end">#E0E7FF</color>
+    <color name="login_text_primary">#1F2937</color>
+    <color name="login_text_title">#374151</color>
+    <color name="login_text_secondary">#6B7280</color>
+    <color name="login_primary">#2563EB</color>
+    <color name="login_border">#D1D5DB</color>
+    <color name="login_icon_tint">#9CA3AF</color>
 </resources>

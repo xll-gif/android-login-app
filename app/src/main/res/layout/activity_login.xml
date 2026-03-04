@@ -1,120 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 按 MasterGo 设计稿 375×812 还原：渐变背景、Logo、标题、表单卡片、登录按钮 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@android:color/white">
+    android:background="@drawable/bg_login_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="32dp">
+        android:gravity="center_horizontal"
+        android:paddingStart="21dp"
+        android:paddingEnd="21dp"
+        android:paddingTop="70dp"
+        android:paddingBottom="32dp">
 
-        <!-- Logo -->
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@android:drawable/ic_menu_info_details"
-            android:layout_marginBottom="32dp"
-            app:tint="#1890ff"/>
+        <!-- Logo + 应用名 (设计 1:20 组 87.33×108.5, 相对顶部 70) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="32dp">
 
-        <!-- 标题 -->
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="MasterGo"
+                android:textColor="@color/login_text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 标题区 (设计 1:29 组 112×49, 相对 y 213.5) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="欢迎登录"
+            android:text="@string/login_title"
+            android:textColor="@color/login_text_title"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="48dp"/>
+            android:layout_marginBottom="4dp" />
 
-        <!-- 输入框容器 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_subtitle"
+            android:textColor="@color/login_text_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 表单卡片 (设计 1:43 333×193) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="24dp">
+            android:background="@null">
 
-            <!-- 用户名输入 -->
+            <!-- 用户名输入 (设计 1:59 蒙版组 333×40.5, 圆角 7dp, 白底灰边) -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="41dp"
                 android:orientation="horizontal"
-                android:background="@android:color/darker_gray"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginBottom="20dp">
+                android:background="@drawable/bg_edittext_login"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="17dp">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@android:drawable/ic_menu_myplaces"
-                    android:layout_marginEnd="12dp"/>
+                    android:src="@drawable/ic_person_outline"
+                    android:contentDescription="@null"
+                    app:tint="@color/login_icon_tint"
+                    android:layout_marginEnd="10dp" />
 
                 <EditText
                     android:id="@+id/usernameEditText"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="请输入用户名"
+                    android:hint="@string/login_hint_username"
+                    android:textColorHint="@color/login_text_secondary"
+                    android:textColor="@color/login_text_primary"
                     android:background="@null"
                     android:textSize="14sp"
-                    android:inputType="text"
-                    android:maxLines="1"/>
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext" />
             </LinearLayout>
 
-            <!-- 密码输入 -->
+            <!-- 密码输入 (设计 1:83 组 333×40.5) -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="41dp"
                 android:orientation="horizontal"
-                android:background="@android:color/darker_gray"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:background="@drawable/bg_edittext_login"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="16dp">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@android:drawable/ic_lock_lock"
-                    android:layout_marginEnd="12dp"/>
+                    android:src="@drawable/ic_lock_outline"
+                    android:contentDescription="@null"
+                    app:tint="@color/login_icon_tint"
+                    android:layout_marginEnd="10dp" />
 
                 <EditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="请输入密码"
+                    android:hint="@string/login_hint_password"
+                    android:textColorHint="@color/login_text_secondary"
+                    android:textColor="@color/login_text_primary"
                     android:background="@null"
                     android:textSize="14sp"
                     android:inputType="textPassword"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:imeOptions="actionDone" />
             </LinearLayout>
+
+            <!-- 忘记密码 (设计 1:47 组 61.25×17.5 右对齐, 色 #2563EB) -->
+            <TextView
+                android:id="@+id/forgotPasswordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/login_forgot_password"
+                android:textColor="@color/login_primary"
+                android:textSize="14sp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- 登录按钮 (设计 1:53 333×42, 圆角 4dp, #2563EB) -->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/login_button"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_login"
+                app:backgroundTint="@null"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
         </LinearLayout>
 
-        <!-- 登录按钮 -->
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="登录"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#1890ff"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- 加载进度 -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:visibility="gone"/>
-
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            tools:visibility="gone" />
     </LinearLayout>
-
 </ScrollView>
